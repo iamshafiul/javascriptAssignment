@@ -1,7 +1,4 @@
-// https://github.com/shafiulmmc/javascriptAssignment
-
 // kilometer To Meter
-
 function kilometerToMeter(kilometer) {
     if (kilometer < 0) {
         return "Distance Can't be negative ";
@@ -11,6 +8,8 @@ function kilometerToMeter(kilometer) {
     }
 
 }
+var kilometerToMeterResult =  kilometerToMeter(25);
+console.log(kilometerToMeterResult);
 
 
 
@@ -19,46 +18,57 @@ function kilometerToMeter(kilometer) {
 function budgetCalculator(watch, phone, laptop) {
     var total = (watch * 50) + (phone * 100) + (laptop * 500)
     return total;
-}
+};
+
+var budgetCalculatorResult = budgetCalculator(50,80,100);
+console.log(budgetCalculatorResult);
 
 
 
 // mega friend
+var friend = ['Al Rayan','Tanim','Arafatul', 'Iqram'];
 
-var arr = ["Karim", "Tahannan", "Rasel", "Jamil"];
-var max = arr[0];
+function megaFriend(friend) {
+    var count = 0;
+    var maxlengthName = [];
 
-function megaFriend(arr) {
-    for (var i = 0; i < arr.length; i++) {
-        var element = arr[i]
-        if (element > max) {
-            max = element;
+    for (var i = 0; i < friend.length; i++) {
+        if (friend[i].length > count) {
+            count = friend[i].length;
+            maxlengthName = friend[i];
         }
     }
-
-    return max
+    return maxlengthName;
 }
+
+var result = megaFriend(friend);
+console.log(result);
 
 
 // hotel cost
-
-function hotelCost(days) {
-    var cost = 0;
+function hotelCost(day) {
+    var totalCost = 0;
+    var days = day;
     if (days < 0) {
         return "Only Positive Number Is Allowed";
-    } else if (days <= 10) {
-        cost = days * 100;
-    } else if (days <= 20) {
-        var firstTenDays = 10 * 100;
-        var remainingDays = day - 10;
-        var secondTenDays = remainingDays * 80;
-        cost = firstTenDayes + secondTenDayes;
     } else {
-        var firstTenDayes = 10 * 100;
-        var secondTenDayes = 10 * 80;
-        var remainingDays = days - 20;
-        var otherDays = remainingDays * 50;
-        cost = firstTenDayes + secondTenDayes + otherDays;
+        if (days <= 10) {
+            var firstTenDay = days * 100;
+            totalCost = firstTenDay;
+
+        } else if (days <= 20) {
+            var firstTenDay = 10 * 100;
+            var secondTenDay = (days - 10) * 80;
+            totalCost = secondTenDay + firstTenDay;
+        } else {
+            var firstTenDay = 10 * 100;
+            var secondTenDay = 10 * 80;
+            var unlimited = (days - 20) * 50;
+            totalCost = firstTenDay + secondTenDay + unlimited;
+        }
     }
-    return cost;
+
+    return totalCost;
 }
+var hotelCostResult = hotelCost(20);
+console.log(hotelCostResult);
